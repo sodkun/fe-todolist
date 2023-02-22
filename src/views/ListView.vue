@@ -140,10 +140,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.input {
-  padding: 0.5rem;
-  font-size: 1rem;
-}
 .list {
   margin-block: 0.5rem;
 }
@@ -151,11 +147,11 @@ export default {
   text-decoration: line-through;
 }
 button {
-  .red {
+  &.red {
     color: red;
   }
-  .orange {
-    color: orange;
+  &.orange {
+    color: black;
   }
 }
 </style>
