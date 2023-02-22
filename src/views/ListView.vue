@@ -2,6 +2,9 @@
 export default {
   name: 'ListView',
   data: () => ({
+    input: {
+      name: ''
+    },
     list: [
       {
         name: 'First list'
@@ -10,14 +13,25 @@ export default {
         name: 'Second list'
       }
     ]
-  })
+  }),
+  methods: {
+    addList() {
+      this.list.push({ ...this.input })
+      this.input.name = ''
+    }
+  }
 }
 </script>
 
 <template>
   <div>
     <h1>List</h1>
-
+    <!-- <input
+      v-model="input.name"
+      type="text"
+      @keyup.enter="list.push({ ...input })"
+    /> -->
+    <input v-model="input.name" type="text" @keyup.enter="addList" required />
     <ol>
       <template v-for="(item, index) in list" :key="index">
         <li>{{ item.name }}</li>
