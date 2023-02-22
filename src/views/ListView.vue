@@ -41,6 +41,7 @@ export default {
       console.log(event)
 
       // pass input to action
+      // determine
       if (this.editing === false) {
         this.addList({ ...this.input })
       } else {
@@ -60,7 +61,9 @@ export default {
     toggleCompleted(index) {
       const detail = this.getDetail(index)
       this.editIndex(index, {
+        // pass all entries in detail object
         ...detail,
+        // take completed value then toggle it
         completed: !detail.completed
       })
     }
@@ -136,7 +139,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .input {
   padding: 0.5rem;
   font-size: 1rem;
@@ -147,10 +150,12 @@ export default {
 .strike {
   text-decoration: line-through;
 }
-button.red {
-  color: red;
-}
-button.orange {
-  color: orange;
+button {
+  .red {
+    color: red;
+  }
+  .orange {
+    color: orange;
+  }
 }
 </style>
