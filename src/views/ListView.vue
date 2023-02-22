@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     // import all defined action via mapActions helper
-    ...mapActions(useListStore, ['addList']),
+    ...mapActions(useListStore, ['addList', 'removeIndex']),
     // submit form
     addForm(event) {
       console.log(event)
@@ -75,6 +75,9 @@ export default {
     <ol class="list">
       <template v-for="(item, index) in getList" :key="index">
         <li>
+          <button class="red" @click="($event) => removeIndex(index)">
+            &times;
+          </button>
           {{ item.name }}
           {{ item?.description ? `- ${item.description}` : '' }}
         </li>
@@ -90,5 +93,8 @@ export default {
 }
 .list {
   margin-block: 0.5rem;
+}
+button.red {
+  color: red;
 }
 </style>
